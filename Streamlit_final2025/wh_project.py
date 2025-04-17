@@ -12,10 +12,10 @@ import pickle
 from PIL import Image # type: ignore
 import json
 
-wh1=pd.read_csv("world-happiness-report-2021.csv")
-wh2=pd.read_csv("world-happiness-report.csv")
-wh_merged=pd.read_csv("world_happiness.csv", index_col= 0)
-wh_ml=pd.read_csv("world_happiness_forML.csv", index_col= 0)
+wh1=pd.read_csv("Streamlit_final2025/world-happiness-report-2021.csv")
+wh2=pd.read_csv("Streamlit_final2025/world-happiness-report.csv")
+wh_merged=pd.read_csv("Streamlit_final2025/world_happiness.csv", index_col= 0)
+wh_ml=pd.read_csv("Streamlit_final2025/world_happiness_forML.csv", index_col= 0)
 
 title = '<h1 style="color: #00549f;">The World Happiness Report</h1>'
 st.markdown(title, unsafe_allow_html=True)

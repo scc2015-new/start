@@ -12,10 +12,10 @@ import pickle
 from PIL import Image # type: ignore
 import json
 
-wh1=pd.read_csv("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/world-happiness-report-2021.csv")
-wh2=pd.read_csv("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/world-happiness-report.csv")
-wh_merged=pd.read_csv("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/world_happiness.csv", index_col= 0)
-wh_ml=pd.read_csv("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/world_happiness_forML.csv", index_col= 0)
+wh1=pd.read_csv("world-happiness-report-2021.csv")
+wh2=pd.read_csv("world-happiness-report.csv")
+wh_merged=pd.read_csv("world_happiness.csv", index_col= 0)
+wh_ml=pd.read_csv("world_happiness_forML.csv", index_col= 0)
 
 title = '<h1 style="color: #00549f;">The World Happiness Report</h1>'
 st.markdown(title, unsafe_allow_html=True)
@@ -24,7 +24,7 @@ st.markdown(title, unsafe_allow_html=True)
 
 #image (free to use from unsplash)
 #https://unsplash.com/de/fotos/eine-person-die-auf-eine-karte-mit-stecknadeln-zeigt-SFRw5GChoLA
-st.sidebar.image("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/smiley1.jpg", width=200)
+st.sidebar.image("smiley1.jpg", width=200)
 
 st.sidebar.title("Table of contents")
 pages=["Introduction","Data Exploration and Preprocessing", "Data Visualization", "Data Modelling", "Prediction", "Conclusion"]
@@ -67,7 +67,7 @@ if page == pages[0] :
   #st.write("In today's society, understanding the factors that contribute to human happiness has become more crucial than ever, for people, and businesses. This World Happiness Report goes deeper into the topic of overall perception of happiness and well-being, offering insights about what makes people feel satisfied with their lives and the environment they are inserted in. Through data collection and detailed analysis, this report evaluates the happiness levels of various countries, covering a variety of elements, such as social, economic, corruption and health-related that shape our perceptions of well-being. These evaluations help to clarify our understanding of the concepts of happiness around the world, and how businesses can take advantage of these insights to boost their strategies.")
   #st.write("In this project, we aim to analyse the factors that contribute to the overall perception of happiness around the world and how these factors are interconnected. By diving into the data, we look for insights into what contributes to happiness in different contexts and how these aspects can be interconnected. We will explore whether there is a universal shared perception of happiness or if it varies significantly across different regions and cultures. Companies can use this knowledge to create strategies that enhance their sales and market, improve employee satisfaction, and foster a positive work environment.")
   st.write("## Introduction") 
-  st.image("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/Happy6.jpg", width= 550)
+  st.image("Happy6.jpg", width= 550)
  
   header_html = "<h3 style='color: black;'>“Most people are about as happy as they make up their minds to be.”    —  Abraham Lincoln</h3>"
   st.markdown(header_html, unsafe_allow_html=True)
@@ -573,26 +573,26 @@ if page == pages[3] :
   if st.button("RandomForest Regressor") :
     st.subheader("Visualizations")
 
-    #image_collage_model = Image.open("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/collage_modeling.png")
+    #image_collage_model = Image.open("collage_modeling.png")
     #st.image(image_collage_model, width=700)
 
-    image_rf = Image.open("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/scatter_prediction.png")
+    image_rf = Image.open("scatter_prediction.png")
     st.image(image_rf, width=700)
     st.write("-", "The points follow the red line quite closely, which indicates a strong match between the actual and predicted scores")
 
 
-    image_rf2 = Image.open("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/scatter_residuals.png")
+    image_rf2 = Image.open("scatter_residuals.png")
     st.image(image_rf2, width=700)
     st.write("-", "The residuals are randomly distributed around zero, meaning that the model does not show systematic errors")
 
 
-    image_rf3 = Image.open("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/histogram.png")
+    image_rf3 = Image.open("histogram.png")
     st.image(image_rf3, width=700)
     st.write("-", "It follows a bell-shaped curve and most residuals are close to zero, which is typical for a well-performing regression model.")
 
   if st.button("Feature Importance") :
     st.subheader("Feature importance of the RandomForest model")
-    image_rf4 = Image.open("/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/feature_importance.png")
+    image_rf4 = Image.open("feature_importance.png")
     st.image(image_rf4, width=700)        
     
 
@@ -609,14 +609,14 @@ if page == pages[4] :
 
     # Load Random Forest model
     def load_model():
-        model_path = r"/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/rf.pkl"
+        model_path = r"rf.pkl"
         with open(model_path, 'rb') as file:
             rf_model = pickle.load(file)
         return rf_model
 
     # Load dataset
     def load_dataset():
-        data_path = r"/Users/stellahoffmann/Documents/Weiterbildung/Streamlit/world_happiness_forML.csv"
+        data_path = r"world_happiness_forML.csv"
         return pd.read_csv(data_path)
 
     # Load model and dataset
